@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
 		props: {
 			products: data
 		},
-		revalidate: 60 * 1000
+		revalidate: 60
 	}
 }
 

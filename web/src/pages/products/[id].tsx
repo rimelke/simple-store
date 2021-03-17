@@ -63,7 +63,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
 			...data,
 			sizes: ['xs', 's','m','l','xl']
 		},
-		revalidate: 5 * 60 * 1000
+		revalidate: 5 * 60
 	}
 }
 
