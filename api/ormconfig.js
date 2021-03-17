@@ -17,6 +17,12 @@ const configs = {
 		username: process.env.DB_USER,
 		password: process.env.DB_PASSWORD,
 		database: process.env.DB_NAME,
+		ssl: true,
+		extra: {
+			ssl: {
+				rejectUnauthorized: false,
+			},
+		},
 		migrations: ['./build/database/migrations/*.js'],
 		entities: ['./build/entities/*.js'],
 		logging: false,

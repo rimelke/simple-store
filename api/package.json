@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
-    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+	"typeorm": "cross-env NODE_ENV=production node ./node_modules/typeorm/cli.js",
+    "dev:typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
     "build": "rimraf build && tsc",
 	"start": "node build/server.js"
