@@ -62,24 +62,20 @@ export const getStaticProps: GetStaticProps = async ctx => {
 		props: {
 			...data,
 			sizes: ['xs', 's','m','l','xl']
-		}
+		},
+		revalidate: 5 * 60 * 1000
 	}
 }
 
 export const getStaticPaths: GetStaticPaths = async ctx => {
+	const { data } = await api.get('/products/offers')
+
 	return {
-		paths: [
-			{
-				params: {
-					id: 'p5jQ9YAYyBCpS5iVWXwt9qJUS'
-				}
-			},
-			{
-				params: {
-					id: 'xyKx3yqt4ZJM1YCGrpHShUlzD'
-				}
+		paths: data.map(product => ({
+			params: {
+				id: product.id
 			}
-		],
+		})),
 		fallback: 'blocking'
 	}
 }
