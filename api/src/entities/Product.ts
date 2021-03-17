@@ -21,7 +21,7 @@ export default class Product {
 	@Column({ default: 0 })
 	popularity: number
 
-	constructor(props: Omit<Product, 'id'>) {
+	constructor(props: Omit<Product, 'id' | 'popularity'>) {
 		Object.assign(this, props)
 		if (!this.id) this.id = genId()
 	}

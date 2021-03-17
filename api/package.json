@@ -6,7 +6,9 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
-    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts"
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
+    "build": "rimraf build && tsc",
+	"start": "node build/server.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -21,6 +23,7 @@
     "eslint-config-prettier": "^8.1.0",
     "jest": "^26.6.3",
     "prettier": "2.2.1",
+    "rimraf": "^3.0.2",
     "sqlite3": "^5.0.2",
     "ts-jest": "^26.5.3",
     "ts-node-dev": "^1.1.6",
